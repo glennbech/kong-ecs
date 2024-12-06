@@ -12,6 +12,7 @@ terraform {
     }
   }
 }
+
 resource "aws_ecr_repository" "kong" {
   name = "custom-kong"
 }
@@ -220,7 +221,7 @@ resource "aws_ecs_task_definition" "kong" {
   container_definitions = jsonencode([
     {
       name  = "kong"
-      image = "kong/kong-gateway:3.4"
+      image = "${aws_ecr_repository.kong.repository_url}:latest"
       portMappings = [
         {
           containerPort = 8000
