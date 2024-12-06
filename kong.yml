@@ -7,7 +7,7 @@ services:
         paths:
           - /test
         strip_path: true
-      - name: test-route-2
-        paths:
-          - /test2
-        strip_path: true
+    plugins:
+      - name: correlation-id
+        config:
+          header_name: X-Correlation-ID
