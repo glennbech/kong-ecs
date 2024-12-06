@@ -221,7 +221,7 @@ resource "aws_ecs_task_definition" "kong" {
   container_definitions = jsonencode([
     {
       name  = "kong"
-      image = "${aws_ecr_repository.kong.repository_url}:latest"
+      image = "244530008913.dkr.ecr.eu-west-1.amazonaws.com/custom-kong:latest"
       portMappings = [
         {
           containerPort = 8000
