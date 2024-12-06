@@ -1,7 +1,3 @@
-Here's the updated `README.md` with a note about preserving the correlation ID:
-
-    ---
-    
     # Kong on ECS with Terraform and GitHub Actions
     
     This repository sets up [Kong Gateway](https://konghq.com/kong-enterprise/) on AWS Elastic Container Service (ECS) using Terraform for infrastructure provisioning and GitHub Actions for CI/CD. It also includes a custom Kong plugin to inject and manage an `X-Correlation-ID` header for enhanced traceability across your APIs.
