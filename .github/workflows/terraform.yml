@@ -38,13 +38,6 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve tfplan
 
-      - name: Wait for ECS Service to be stable
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: |
-          aws ecs wait services-stable \
-            --cluster $(terraform output -raw ecs_cluster_name) \
-            --services $(terraform output -raw ecs_service_name)
-           - name: Login to Amazon ECR
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
